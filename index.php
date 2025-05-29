@@ -293,9 +293,9 @@ if (isset($_POST['tentativa'])) {
         if ($tentativa == $carta_secreta_nome) {
             echo "<h2>Você acertou!</h2>";
             echo "<p class='correct'></strong> " . ucfirst($tentativa) . "</p>";
-            echo "<img src='imagens/$tentativa.png' class='correct' alt='$tentativa' style='width:150px; border: 4px solid #000; box-shadow: 4px 4px #000; margin: 10px;'>";
+            echo "<img src='$tentativa.png' class='correct' alt='$tentativa' style='width:150px; border: 4px solid #000; box-shadow: 4px 4px #000; margin: 10px;'>";
             foreach (["elixir", "raridade", "tipo", "unidades","alvos", "alcance"] as $atributo) {
-                echo "<p class='correct'><strong> <img src='imagens/$atributo.png' alt='$atributo' style='width:16px; vertical-align:middle; width: 25px;'> " . ucfirst($atributo) . ": </strong>" . $carta_secreta[$atributo] . "</p>";
+                echo "<p class='correct'><strong> <img src='$atributo.png' alt='$atributo' style='width:16px; vertical-align:middle; width: 25px;'> " . ucfirst($atributo) . ": </strong>" . $carta_secreta[$atributo] . "</p>";
             }
             echo "<h3>🎉 Parabéns! Você acertou a carta secreta: <strong>" . ucfirst($carta_secreta_nome) . "</strong>! 🎉</h3>";
             echo "<form method='post'><button name='reset'>Jogar Novamente</button></form>";
@@ -303,7 +303,7 @@ if (isset($_POST['tentativa'])) {
             echo "<h2>Tentativa:</h2>";
             echo ucfirst($tentativa);
             echo'<br>';
-            echo "<img src='imagens/$tentativa.png' alt='$tentativa' style='width:150px; border: 4px solid #000; box-shadow: 4px 4px #000; margin: 10px;'>";
+            echo "<img src='$tentativa.png' alt='$tentativa' style='width:150px; border: 4px solid #000; box-shadow: 4px 4px #000; margin: 10px;'>";
 
             foreach (["elixir", "raridade", "tipo", "unidades","alvos", "alcance"] as $atributo) {
                 $valor_secreto = $carta_secreta[$atributo];
@@ -315,7 +315,7 @@ if (isset($_POST['tentativa'])) {
                     $classe = 'incorrect';
                 }
 
-                echo "<p class='$classe'><strong> <img src='imagens/$atributo.png' alt='$atributo' style='width:16px; vertical-align:middle; width: 25px;'> " . ucfirst($atributo) . ": </strong> $valor_tentado</p>";
+                echo "<p class='$classe'><strong> <img src='$atributo.png' alt='$atributo' style='width:16px; vertical-align:middle; width: 25px;'> " . ucfirst($atributo) . ": </strong> $valor_tentado</p>";
             }
         }
         echo "</div>";
