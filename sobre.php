@@ -118,5 +118,5 @@
 </div>
 
 <br>
-    <img src='imagens/CartaGabriel.png' alt='Eu' style='width:500px; margin: 10px;'>
+    <img src='CartaGabriel.png' alt='Eu' style='width:500px; margin: 10px;'>
     
