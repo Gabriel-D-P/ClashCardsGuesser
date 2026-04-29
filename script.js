@@ -1,6 +1,14 @@
 let cartas = {};
 let cartaSecreta = null;
 let cartaSecretaNome = null;
+let numeroTentativa = 0;
+
+// Pré-carregando os ícones dos atributos na memória para exibição instantânea
+const atributos = ["elixir", "raridade", "tipo", "unidades", "alvos", "alcance"];
+atributos.forEach(attr => {
+    const img = new Image();
+    img.src = `assets/imagens/${attr}.png`;
+});
 
 function ucfirst(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -44,11 +52,11 @@ function handleTentativa(e) {
     }
 
     const cartaTentativa = cartas[tentativaInput];
+    numeroTentativa++; // Conta em qual tentativa estamos
     let htmlOutput = "<div class='resultado'>";
-    const atributos = ["elixir", "raridade", "tipo", "unidades", "alvos", "alcance"];
 
     if (tentativaInput === cartaSecretaNome) {
-        htmlOutput += "<h2>Você acertou!</h2>";
+        htmlOutput += `<h2>Você acertou na tentativa ${numeroTentativa}!</h2>`;
         htmlOutput += `<p class='correct'><strong>${ucfirst(tentativaInput)}</strong></p>`;
         htmlOutput += `<img src='assets/imagens/${tentativaInput}.png' class='correct' alt='${tentativaInput}' style='width:150px; border: 4px solid #000; box-shadow: 4px 4px #000; margin: 10px;'>`;
 
@@ -61,7 +69,7 @@ function handleTentativa(e) {
 
         document.getElementById('form-container').style.display = 'none';
     } else {
-        htmlOutput += "<h2>Tentativa:</h2>";
+        htmlOutput += `<h2>Tentativa ${numeroTentativa}:</h2>`;
         htmlOutput += ucfirst(tentativaInput) + "<br>";
         htmlOutput += `<img src='assets/imagens/${tentativaInput}.png' alt='${tentativaInput}' style='width:150px; border: 4px solid #000; box-shadow: 4px 4px #000; margin: 10px;'>`;
 
@@ -75,8 +83,12 @@ function handleTentativa(e) {
     }
 
     htmlOutput += "</div>";
+    
+    // Voltamos para innerHTML caso você queira sempre limpar a interface antes de inserir a nova carta.
+    // Mostrar apenas UMA carta por vez ao invés de enfileirá-las.
     resultContainer.innerHTML = htmlOutput;
 
+    // O botão reset só é inserido quando ganha, pegamos ele pra definir os eventos
     const btnReset = document.getElementById('btn-reset');
     if (btnReset) {
         btnReset.addEventListener('click', function () {
