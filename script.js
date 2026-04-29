@@ -83,7 +83,7 @@ function handleTentativa(e) {
     }
 
     htmlOutput += "</div>";
-    
+
     // Voltamos para innerHTML caso você queira sempre limpar a interface antes de inserir a nova carta.
     // Mostrar apenas UMA carta por vez ao invés de enfileirá-las.
     resultContainer.innerHTML = htmlOutput;
