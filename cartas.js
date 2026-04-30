@@ -1,0 +1,963 @@
+const cartasData = 
+{
+    "espelho": {
+        "elixir": "?",
+        "raridade": "Épica",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Nenhum",
+        "alcance": "-"
+    },
+    "espírito de fogo": {
+        "elixir": 1,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "-"
+    },
+    "espírito de gelo": {
+        "elixir": 1,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "2,5"
+    },
+    "espírito elétrico": {
+        "elixir": 1,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "2,5"
+    },
+    "espírito de cura": {
+        "elixir": 1,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "2,5"
+    },
+    "esqueletos": {
+        "elixir": 1,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 3,
+        "alvos": "Terrestre",
+        "alcance": "Físico Próximo"
+    },
+    "arbusto suspeito": {
+        "elixir": 2,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "-"
+    },
+    "barril de bárbaro": {
+        "elixir": 2,
+        "raridade": "Épica",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "4,5"
+    },
+    "berserker": {
+        "elixir": 2,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico próximo"
+    },
+    "bombardeiro": {
+        "elixir": 2,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "4,5"
+    },
+    "bola de neve": {
+        "elixir": 2,
+        "raridade": "Comum",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "destruídores de muros": {
+        "elixir": 2,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 2,
+        "alvos": "Construções",
+        "alcance": "Físico próximo"
+    },
+    "morcegos": {
+        "elixir": 2,
+        "raridade": "Comum",
+        "tipo": "Tropa Aérea",
+        "unidades": 5,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Físico médio"
+    },
+    "goblins": {
+        "elixir": 2,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 4,
+        "alvos": "Terrestre",
+        "alcance": "Físico próximo"
+    },
+    "goblins lanceiros": {
+        "elixir": 2,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 3,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "5,5"
+    },
+    "golem de gelo": {
+        "elixir": 2,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "Físico próximo"
+    },
+    "fúria": {
+        "elixir": 2,
+        "raridade": "Épica",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "maldição goblin": {
+        "elixir": 2,
+        "raridade": "Épica",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "tronco": {
+        "elixir": 2,
+        "raridade": "Lendária",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "10,1"
+    },
+    "zap": {
+        "elixir": 2,
+        "raridade": "Comum",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "vinhas": {
+        "elixir": 3,
+        "raridade": "Épica",
+        "tipo": "Feitiço",
+        "unidades": 3,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "megasservo": {
+        "elixir": 3,
+        "raridade": "Rara",
+        "tipo": "Tropa Aérea",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Físico distante"
+    },
+    "princesa": {
+        "elixir": 3,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "9"
+    },
+    "mago de gelo": {
+        "elixir": 3,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "5,5"
+    },
+    "cavaleiro": {
+        "elixir": 3,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico médio"
+    },
+    "arqueiras": {
+        "elixir": 3,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 2,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "5"
+    },
+    "flechas": {
+        "elixir": 3,
+        "raridade": "Comum",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "barril de esqueletos": {
+        "elixir": 3,
+        "raridade": "Comum",
+        "tipo": "Tropa Aérea",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "-"
+    },
+    "gangue de goblins": {
+        "elixir": 3,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 6,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "-"
+    },
+    "goblin com dardo": {
+        "elixir": 3,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "6,5"
+    },
+    "canhão": {
+        "elixir": 3,
+        "raridade": "Comum",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "5,5"
+    },
+    "lápide": {
+        "elixir": 3,
+        "raridade": "Rara",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Nenhum",
+        "alcance": "-"
+    },
+    "tornado": {
+        "elixir": 3,
+        "raridade": "Épica",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "golem de elixir": {
+        "elixir": 3,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "Físico próximo"
+    },
+    "barril de goblins": {
+        "elixir": 3,
+        "raridade": "Épica",
+        "tipo": "Feitiço",
+        "unidades": 3,
+        "alvos": "Nenhum",
+        "alcance": "Toda arena"
+    },
+    "clone": {
+        "elixir": 3,
+        "raridade": "Épica",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "exército de esqueletos": {
+        "elixir": 3,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 15,
+        "alvos": "Terrestre",
+        "alcance": "-"
+    },
+    "servos": {
+        "elixir": 3,
+        "raridade": "Comum",
+        "tipo": "Tropa Aérea",
+        "unidades": 3,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Físico distante"
+    },
+    "guardas": {
+        "elixir": 3,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 3,
+        "alvos": "Terrestre",
+        "alcance": "Físico distante"
+    },
+    "mineiro": {
+        "elixir": 3,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Toda arena"
+    },
+    "bandida": {
+        "elixir": 3,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico próximo"
+    },
+    "fantasma real": {
+        "elixir": 3,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico médio"
+    },
+    "terremoto": {
+        "elixir": 3,
+        "raridade": "Rara",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Toda arena"
+    },
+    "pescador": {
+        "elixir": 3,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico médio"
+    },
+    "pirotécnica": {
+        "elixir": 3,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "6"
+    },
+    "encomenda real": {
+        "elixir": 3,
+        "raridade": "Comum",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "3"
+    },
+    "pequeno príncipe": {
+        "elixir": 3,
+        "raridade": "Campeão",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "5,5"
+    },
+    "vácuo": {
+        "elixir": 3,
+        "raridade": "Épica",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "mineiro bombado": {
+        "elixir": 4,
+        "raridade": "Campeão",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico distante"
+    },
+    "rei esqueleto": {
+        "elixir": 4,
+        "raridade": "Campeão",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico médio"
+    },
+    "cavaleiro dourado": {
+        "elixir": 4,
+        "raridade": "Campeão",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico médio"
+    },
+    "bruxa mãe": {
+        "elixir": 4,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "5,5"
+    },
+    "fênix": {
+        "elixir": 4,
+        "raridade": "Lendária",
+        "tipo": "Tropa Aérea",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Físico distante"
+    },
+    "goblin demolidor": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "5"
+    },
+    "caçador": {
+        "elixir": 4,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "4"
+    },
+    "máquina voadora": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Tropa Aérea",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "6"
+    },
+    "eletrocutadores": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 3,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "4,5"
+    },
+    "gigante das runas": {
+        "elixir": 4,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "Físico médio"
+    },
+    "bruxa sombria": {
+        "elixir": 4,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico distante"
+    },
+    "arqueiro mágico": {
+        "elixir": 4,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "7"
+    },
+    "mago elétrico": {
+        "elixir": 4,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "5"
+    },
+    "dragão infernal": {
+        "elixir": 4,
+        "raridade": "Lendária",
+        "tipo": "Tropa Aérea",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "3,5"
+    },
+    "dragões esqueletos": {
+        "elixir": 4,
+        "raridade": "Comum",
+        "tipo": "Tropa Aérea",
+        "unidades": 2,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "3,5"
+    },
+    "curadora guerreira": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico distante"
+    },
+    "lenhador": {
+        "elixir": 4,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico próximo"
+    },
+    "gelo": {
+        "elixir": 4,
+        "raridade": "Épica",
+        "tipo": "fetiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "fornalha": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Nenhum",
+        "alcance": "-"
+    },
+    "cabana de goblins": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Nenhum",
+        "alcance": "6"
+    },
+    "torre de bombas": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "6"
+    },
+    "jaula de goblin": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Nenhum",
+        "alcance": "-"
+    },
+    "tesla": {
+        "elixir": 4,
+        "raridade": "Comum",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "5,5"
+    },
+    "escavadeira de goblins": {
+        "elixir": 4,
+        "raridade": "Épica",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Toda arena"
+    },
+    "bola de fogo": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "mosqueteira": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "6"
+    },
+    "mini pekka": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico próximo"
+    },
+    "valquíria": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico médio"
+    },
+    "príncipe das trevas": {
+        "elixir": 4,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico médio"
+    },
+    "bebê dragão": {
+        "elixir": 4,
+        "raridade": "Épica",
+        "tipo": "Tropa Aérea",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "3,5"
+    },
+    "veneno": {
+        "elixir": 4,
+        "raridade": "Épica",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "corredor": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "Físico próximo"
+    },
+    "aríete de batalha": {
+        "elixir": 4,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "Físico próximo"
+    },
+    "morteiro": {
+        "elixir": 4,
+        "raridade": "Comum",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "11,5"
+    },
+    "rainha arqueira": {
+        "elixir": 5,
+        "raridade": "Campeão",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "5"
+    },
+    "monge": {
+        "elixir": 5,
+        "raridade": "Campeão",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico médio"
+    },
+    "goblinstein": {
+        "elixir": 5,
+        "raridade": "Campeão",
+        "tipo": "Tropa Terrestre",
+        "unidades": 2,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "5,5"
+    },
+    "máquina goblin": {
+        "elixir": 5,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Físico médio"
+    },
+    "patifes": {
+        "elixir": 5,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 3,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Físico próximo"
+    },
+    "porcos reais": {
+        "elixir": 5,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 5,
+        "alvos": "Construções",
+        "alcance": "Físico próximo"
+    },
+    "domadora de carneiro": {
+        "elixir": 5,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "Físico próximo"
+    },
+    "dragão elétrico": {
+        "elixir": 5,
+        "raridade": "Épica",
+        "tipo": "Tropa Aérea",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "3,5"
+    },
+    "cemitério": {
+        "elixir": 5,
+        "raridade": "Lendária",
+        "tipo": "Feitiço",
+        "unidades": 15,
+        "alvos": "Nenhum",
+        "alcance": "Toda arena"
+    },
+    "gigante": {
+        "elixir": 5,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "Físico médio"
+    },
+    "carrinho de canhão": {
+        "elixir": 5,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "5,5"
+    },
+    "príncipe": {
+        "elixir": 5,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico distante"
+    },
+    "balão": {
+        "elixir": 5,
+        "raridade": "Épica",
+        "tipo": "Tropa Aérea",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "Físico próximo"
+    },
+    "mago": {
+        "elixir": 5,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "5,5"
+    },
+    "torre inferno": {
+        "elixir": 5,
+        "raridade": "Rara",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "6"
+    },
+    "executor": {
+        "elixir": 5,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "4,5"
+    },
+    "bruxa": {
+        "elixir": 5,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "5,5"
+    },
+    "bárbaros": {
+        "elixir": 5,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 5,
+        "alvos": "Terrestre",
+        "alcance": "Físico próximo"
+    },
+    "horda de servos": {
+        "elixir": 5,
+        "raridade": "Comum",
+        "tipo": "Tropa Aérea",
+        "unidades": 6,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Físico distante"
+    },
+    "lançador": {
+        "elixir": 5,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "4"
+    },
+    "bandida líder": {
+        "elixir": 6,
+        "raridade": "Campeão",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico próximo"
+    },
+    "gigante real": {
+        "elixir": 6,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "5"
+    },
+    "goblin gigante": {
+        "elixir": 6,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "Físico médio"
+    },
+    "esqueleto gigante": {
+        "elixir": 6,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico próximo"
+    },
+    "relâmpago": {
+        "elixir": 6,
+        "raridade": "Épica",
+        "tipo": "Feitiço",
+        "unidades": 3,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "coletor de elixir": {
+        "elixir": 6,
+        "raridade": "Rara",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Nenhum",
+        "alcance": "-"
+    },
+    "foguete": {
+        "elixir": 6,
+        "raridade": "Rara",
+        "tipo": "Feitiço",
+        "unidades": 1,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "Toda arena"
+    },
+    "x besta": {
+        "elixir": 6,
+        "raridade": "Épica",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "11,5"
+    },
+    "bárbaros de elite": {
+        "elixir": 6,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 2,
+        "alvos": "Terrestre",
+        "alcance": "Físico médio"
+    },
+    "cabana de bárbaros": {
+        "elixir": 6,
+        "raridade": "Rara",
+        "tipo": "Construção",
+        "unidades": 1,
+        "alvos": "Nenhum",
+        "alcance": "-"
+    },
+    "sparky": {
+        "elixir": 6,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "5"
+    },
+    "recrutas reais": {
+        "elixir": 7,
+        "raridade": "Comum",
+        "tipo": "Tropa Terrestre",
+        "unidades": 6,
+        "alvos": "Terrestre",
+        "alcance": "Físico distante"
+    },
+    "gigante elétrico": {
+        "elixir": 7,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "Físico médio"
+    },
+    "pekka": {
+        "elixir": 7,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico médio"
+    },
+    "lava hound": {
+        "elixir": 7,
+        "raridade": "Lendária",
+        "tipo": "Tropa Aérea",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "3,5"
+    },
+    "mega cavaleiro": {
+        "elixir": 7,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico médio"
+    },
+    "golem": {
+        "elixir": 8,
+        "raridade": "Épica",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Construções",
+        "alcance": "Físico próximo"
+    },
+    "três mosqueteiras": {
+        "elixir": 9,
+        "raridade": "Rara",
+        "tipo": "Tropa Terrestre",
+        "unidades": 3,
+        "alvos": "Aéreo/Terrestre",
+        "alcance": "6"
+    }
+};

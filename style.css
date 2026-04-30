@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Clash';
+    src: url('assets/Clash_Regular.otf') format('opentype');
+}
+
+body {
+    font-family: 'Clash', sans-serif;
+    background-image: url('assets/imagens/background.png');
+    background-repeat: repeat;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-shadow: 2px 2px #000;
+    font-size: 1.4rem;
+    margin: 10px 0;
+    line-height: 1.2;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #333;
+    border: 3px solid #000;
+    border-radius: 5px;
+    box-shadow: 2px 2px #000;
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.navbar a {
+    flex: 1;
+    color: white;
+    text-align: center;
+    padding: 8px 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+    min-width: 100px;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+}
+
+#form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#jogo-form {
+    width: 100%;
+    max-width: 400px;
+    /* Limita a largura em telas grandes, usa 100% nas pequenas */
+}
+
+input[type="text"],
+input[type="submit"],
+button {
+    padding: 6px 10px;
+    margin: 3px 0;
+    width: 100%;
+    max-width: 320px;
+    cursor: pointer;
+    border: 3px solid #222;
+    border-radius: 5px;
+    background-color: #88c0d0;
+    color: #000;
+    font-family: 'Clash', sans-serif;
+    font-size: 1rem;
+    box-shadow: 3px 3px #000;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #a3d5e0;
+}
+
+input[type="submit"]:active,
+button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px #000;
+}
+
+#resultado-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.resultado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(31, 31, 31);
+    border: 4px solid #000;
+    border-radius: 8px;
+    padding: 6px 10px;
+    box-shadow: 5px 5px #000;
+    margin-top: 15px;
+    width: 100%;
+    max-width: 380px;
+}
+
+.resultado h2 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.resultado img {
+    max-width: 100%;
+    height: auto;
+}
+
+.resultado p {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #3a3a3a;
+    border: 3px solid #000;
+    border-radius: 5px;
+    padding: 6px 10px;
+    margin: 3px 0;
+    color: white;
+    box-shadow: 2px 2px #000;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.resultado p strong {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 5px;
+    color: #fff;
+}
+
+.resultado p strong img {
+    margin-right: 6px;
+    width: 20px !important;
+}
+
+.resultado p.correct,
+.resultado .correct {
+    background-color: #4caf50;
+}
+
+.resultado p.incorrect,
+.resultado .incorrect {
+    background-color: #e53935;
+}
+
+@media (min-width: 600px) {
+    body {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .resultado {
+        padding: 20px;
+    }
+
+    .resultado p {
+        font-size: 1rem;
+    }
+}
+
+.resultado_sobre {
+    display: inline-block;
+    background-color: rgb(31, 31, 31);
+    border: 4px solid #000;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 5px 5px #000;
+    margin-top: 20px;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resultado_sobre p {
+    background-color: #3a3a3a;
+    border: 3px solid #000;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    color: white;
+    box-shadow: 2px 2px #000;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.resultado_sobre .correct {
+    background-color: #4caf50;
+    border-color: #000;
+}
+
+.resultado_sobre .incorrect {
+    background-color: #e53935;
+    border-color: #000;
+}
+
+.resultado_sobre h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
