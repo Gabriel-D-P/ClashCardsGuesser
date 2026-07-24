@@ -816,6 +816,14 @@ const cartasData =
         "alvos": "Terrestre",
         "alcance": "4"
     },
+    "ronin": {
+        "elixir": 5,
+        "raridade": "Lendária",
+        "tipo": "Tropa Terrestre",
+        "unidades": 1,
+        "alvos": "Terrestre",
+        "alcance": "Físico Médio"
+    },
     "bandida líder": {
         "elixir": 6,
         "raridade": "Campeão",
