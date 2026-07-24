@@ -73,13 +73,23 @@ function handleTentativa(e) {
         htmlOutput += ucfirst(tentativaInput) + "<br>";
         htmlOutput += `<img src='assets/imagens/${tentativaInput}.png' alt='${tentativaInput}' style='width:150px; border: 4px solid #000; box-shadow: 4px 4px #000; margin: 10px;'>`;
 
+        let acertouTodos = true;
+
         atributos.forEach(atributo => {
             const valorSecreto = cartaSecreta[atributo];
             const valorTentado = cartaTentativa[atributo];
             const classe = (valorSecreto == valorTentado) ? 'correct' : 'incorrect';
 
+            if (classe === 'incorrect') {
+                acertouTodos = false;
+            }
+
             htmlOutput += `<p class='${classe}'><strong> <img src='assets/imagens/${atributo}.png' alt='${atributo}' style='width:16px; vertical-align:middle; width: 25px;'> ${ucfirst(atributo)}: </strong> ${valorTentado}</p>`;
         });
+
+        if (acertouTodos) {
+            htmlOutput += `<p style="background-color: #f39c12; color: white; justify-content: center; font-weight: bold; text-align: center;">Atributos iguais, mas a carta secreta é outra!</p>`;
+        }
     }
 
     htmlOutput += "</div>";
