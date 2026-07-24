@@ -29,13 +29,92 @@ function iniciarJogo() {
     }
     cartaSecreta = cartas[cartaSecretaNome];
 
-    // Preenchendo o Datalist
-    const datalist = document.getElementById('cartas-datalist');
-    for (const nome in cartas) {
-        const option = document.createElement('option');
-        option.value = ucfirst(nome);
-        datalist.appendChild(option);
+    // Lógica do Autocompletar Customizado
+    const inputTentativa = document.getElementById('tentativa');
+    const autocompleteList = document.getElementById('autocomplete-list');
+    const nomesTodasCartas = Object.keys(cartas).sort((a, b) => a.localeCompare(b, 'pt-BR'));
+    let currentFocus = -1;
+
+    function renderizarLista(filtro) {
+        autocompleteList.innerHTML = '';
+        let matchCount = 0;
+        
+        nomesTodasCartas.forEach(nome => {
+            if (!filtro || nome.includes(filtro)) {
+                matchCount++;
+                const item = document.createElement('div');
+                const nomeDisplay = ucfirst(nome);
+                
+                item.innerHTML = `<img src="assets/imagens/${nome}.png" alt="${nome}"> <strong>${nomeDisplay}</strong>`;
+                
+                item.addEventListener('click', function() {
+                    inputTentativa.value = nomeDisplay;
+                    autocompleteList.innerHTML = '';
+                    autocompleteList.style.display = 'none';
+                });
+                
+                autocompleteList.appendChild(item);
+            }
+        });
+
+        if (matchCount > 0) {
+            autocompleteList.style.display = 'block';
+        } else {
+            autocompleteList.style.display = 'none';
+        }
     }
+
+    inputTentativa.addEventListener('input', function() {
+        const val = this.value.trim().toLowerCase();
+        currentFocus = -1;
+        renderizarLista(val);
+    });
+
+    inputTentativa.addEventListener('focus', function() {
+        const val = this.value.trim().toLowerCase();
+        currentFocus = -1;
+        renderizarLista(val);
+    });
+
+    inputTentativa.addEventListener('keydown', function(e) {
+        let items = autocompleteList.getElementsByTagName('div');
+        if (e.key === 'ArrowDown') {
+            e.preventDefault(); // Impede o cursor de mover no input
+            currentFocus++;
+            addActive(items);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault(); // Impede o cursor de mover no input
+            currentFocus--;
+            addActive(items);
+        } else if (e.key === 'Enter') {
+            if (autocompleteList.style.display === 'block' && currentFocus > -1) {
+                e.preventDefault();
+                if (items) items[currentFocus].click();
+            }
+        }
+    });
+
+    function addActive(items) {
+        if (!items || items.length === 0) return false;
+        removeActive(items);
+        if (currentFocus >= items.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (items.length - 1);
+        items[currentFocus].classList.add("autocomplete-active");
+        items[currentFocus].scrollIntoView({ block: "nearest" });
+    }
+
+    function removeActive(items) {
+        for (let i = 0; i < items.length; i++) {
+            items[i].classList.remove("autocomplete-active");
+        }
+    }
+
+    // Fechar lista ao clicar fora
+    document.addEventListener('click', function (e) {
+        if (e.target !== inputTentativa && e.target !== autocompleteList) {
+            autocompleteList.style.display = 'none';
+        }
+    });
 
     // Formulário de Tentativa
     document.getElementById('jogo-form').addEventListener('submit', handleTentativa);
@@ -47,7 +126,7 @@ function iniciarJogo() {
             const resultContainer = document.getElementById('resultado-container');
             let htmlOutput = "<div class='resultado'>";
             htmlOutput += `<h2>Você desistiu! 🏳️</h2>`;
-            htmlOutput += `<img src='assets/imagens/${cartaSecretaNome}.png' class='correct' alt='${cartaSecretaNome}' style='width:150px; margin: 10px;'>`;
+            htmlOutput += `<img src='assets/imagens/${cartaSecretaNome}.png' alt='${cartaSecretaNome}' style='width:150px; margin: 10px;'>`;
             htmlOutput += `<h3>A carta secreta era: <strong>${ucfirst(cartaSecretaNome)}</strong>!</h3>`;
             htmlOutput += `<button id='btn-reset'>Jogar Novamente</button>`;
             htmlOutput += "</div>";
@@ -82,7 +161,7 @@ function handleTentativa(e) {
     if (tentativaInput === cartaSecretaNome) {
         htmlOutput += `<h2>Você acertou na tentativa ${numeroTentativa}!</h2>`;
         htmlOutput += `<p class='correct flip-animation' style='animation-delay: 0s;'><strong>${ucfirst(tentativaInput)}</strong></p>`;
-        htmlOutput += `<img src='assets/imagens/${tentativaInput}.png' class='correct flip-animation' alt='${tentativaInput}' style='width:150px; margin: 10px; animation-delay: 0.1s;'>`;
+        htmlOutput += `<img src='assets/imagens/${tentativaInput}.png' class='flip-animation' alt='${tentativaInput}' style='width:150px; margin: 10px; animation-delay: 0.1s;'>`;
 
         let animationDelay = 0.2;
         atributos.forEach(atributo => {
