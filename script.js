@@ -39,6 +39,27 @@ function iniciarJogo() {
 
     // Formulário de Tentativa
     document.getElementById('jogo-form').addEventListener('submit', handleTentativa);
+
+    // Botão Desistir
+    const btnDesistir = document.getElementById('btn-desistir');
+    if (btnDesistir) {
+        btnDesistir.addEventListener('click', () => {
+            const resultContainer = document.getElementById('resultado-container');
+            let htmlOutput = "<div class='resultado'>";
+            htmlOutput += `<h2>Você desistiu! 🏳️</h2>`;
+            htmlOutput += `<img src='assets/imagens/${cartaSecretaNome}.png' class='correct' alt='${cartaSecretaNome}' style='width:150px; margin: 10px;'>`;
+            htmlOutput += `<h3>A carta secreta era: <strong>${ucfirst(cartaSecretaNome)}</strong>!</h3>`;
+            htmlOutput += `<button id='btn-reset'>Jogar Novamente</button>`;
+            htmlOutput += "</div>";
+            resultContainer.innerHTML = htmlOutput;
+            document.getElementById('form-container').style.display = 'none';
+
+            document.getElementById('btn-reset').addEventListener('click', function () {
+                sessionStorage.removeItem('carta_secreta');
+                location.reload();
+            });
+        });
+    }
 }
 
 function handleTentativa(e) {
@@ -51,44 +72,52 @@ function handleTentativa(e) {
         return;
     }
 
+    const btnDesistir = document.getElementById('btn-desistir');
+    if (btnDesistir) btnDesistir.style.display = 'block';
+
     const cartaTentativa = cartas[tentativaInput];
     numeroTentativa++; // Conta em qual tentativa estamos
     let htmlOutput = "<div class='resultado'>";
 
     if (tentativaInput === cartaSecretaNome) {
         htmlOutput += `<h2>Você acertou na tentativa ${numeroTentativa}!</h2>`;
-        htmlOutput += `<p class='correct'><strong>${ucfirst(tentativaInput)}</strong></p>`;
-        htmlOutput += `<img src='assets/imagens/${tentativaInput}.png' class='correct' alt='${tentativaInput}' style='width:150px; border: 4px solid #000; box-shadow: 4px 4px #000; margin: 10px;'>`;
+        htmlOutput += `<p class='correct flip-animation' style='animation-delay: 0s;'><strong>${ucfirst(tentativaInput)}</strong></p>`;
+        htmlOutput += `<img src='assets/imagens/${tentativaInput}.png' class='correct flip-animation' alt='${tentativaInput}' style='width:150px; margin: 10px; animation-delay: 0.1s;'>`;
 
+        let animationDelay = 0.2;
         atributos.forEach(atributo => {
-            htmlOutput += `<p class='correct'><strong> <img src='assets/imagens/${atributo}.png' alt='${atributo}' style='width:16px; vertical-align:middle; width: 25px;'> ${ucfirst(atributo)}: </strong>${cartaSecreta[atributo]}</p>`;
+            htmlOutput += `<p class='correct flip-animation' style='animation-delay: ${animationDelay}s;'><strong> <img src='assets/imagens/${atributo}.png' alt='${atributo}' style='width:16px; vertical-align:middle; width: 25px;'> ${ucfirst(atributo)}: </strong>${cartaSecreta[atributo]}</p>`;
+            animationDelay += 0.1;
         });
 
-        htmlOutput += `<h3>🎉 Parabéns! Você acertou a carta secreta: <strong>${ucfirst(cartaSecretaNome)}</strong>! 🎉</h3>`;
-        htmlOutput += `<button id='btn-reset'>Jogar Novamente</button>`;
+        htmlOutput += `<h3 class='flip-animation' style='animation-delay: ${animationDelay}s;'>🎉 Parabéns! Você acertou a carta secreta: <strong>${ucfirst(cartaSecretaNome)}</strong>! 🎉</h3>`;
+        animationDelay += 0.1;
+        htmlOutput += `<button id='btn-reset' class='flip-animation' style='animation-delay: ${animationDelay}s;'>Jogar Novamente</button>`;
 
         document.getElementById('form-container').style.display = 'none';
     } else {
         htmlOutput += `<h2>Tentativa ${numeroTentativa}:</h2>`;
         htmlOutput += ucfirst(tentativaInput) + "<br>";
-        htmlOutput += `<img src='assets/imagens/${tentativaInput}.png' alt='${tentativaInput}' style='width:150px; border: 4px solid #000; box-shadow: 4px 4px #000; margin: 10px;'>`;
+        htmlOutput += `<img src='assets/imagens/${tentativaInput}.png' alt='${tentativaInput}' class='flip-animation' style='width:150px; margin: 10px; animation-delay: 0s;'>`;
 
         let acertouTodos = true;
+        let animationDelay = 0.1;
 
         atributos.forEach(atributo => {
             const valorSecreto = cartaSecreta[atributo];
             const valorTentado = cartaTentativa[atributo];
             const classe = (valorSecreto == valorTentado) ? 'correct' : 'incorrect';
-
+            
             if (classe === 'incorrect') {
                 acertouTodos = false;
             }
 
-            htmlOutput += `<p class='${classe}'><strong> <img src='assets/imagens/${atributo}.png' alt='${atributo}' style='width:16px; vertical-align:middle; width: 25px;'> ${ucfirst(atributo)}: </strong> ${valorTentado}</p>`;
+            htmlOutput += `<p class='${classe} flip-animation' style='animation-delay: ${animationDelay}s;'><strong> <img src='assets/imagens/${atributo}.png' alt='${atributo}' style='width:16px; vertical-align:middle; width: 25px;'> ${ucfirst(atributo)}: </strong> ${valorTentado}</p>`;
+            animationDelay += 0.1;
         });
 
         if (acertouTodos) {
-            htmlOutput += `<p style="background-color: #f39c12; color: white; justify-content: center; font-weight: bold; text-align: center;">Atributos iguais, mas a carta secreta é outra!</p>`;
+            htmlOutput += `<p class='flip-animation' style="background-color: #f39c12; color: white; justify-content: center; font-weight: bold; text-align: center; animation-delay: ${animationDelay}s;">Atributos iguais, mas a carta secreta é outra!</p>`;
         }
     }
 

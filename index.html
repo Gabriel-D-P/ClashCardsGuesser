@@ -19,8 +19,10 @@
     <form id="jogo-form">
         <input type="text" id="tentativa" placeholder="Digite o nome da carta" required autocomplete="off" list="cartas-datalist">
         <datalist id="cartas-datalist"></datalist>
-        <br>
-        <input type="submit" value="Enviar tentativa">
+        <div class="botoes-container">
+            <input type="submit" value="Enviar tentativa">
+            <button type="button" id="btn-desistir" class="desistir" style="display: none;">Desistir 🏳️</button>
+        </div>
     </form>
 </div>
 
